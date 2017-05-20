@@ -72,12 +72,18 @@ public class Clarifai {
         String createdAt = strings[2].substring(strings[2].indexOf("=") + 1, strings[2].length());
         if(createdAt.equals("null"))
             createdAt = null;
-        String updateddAt = strings[3].substring(strings[3].indexOf("=") + 1, strings[3].length());
-        if(updateddAt.equals("null"))
-            updateddAt = null;
-        String appID = strings[4].substring(strings[4].indexOf("=") + 1, strings[4].length());
-        double value = Double.valueOf(strings[5].substring(strings[5].indexOf("=") + 1, strings[5].length() - 1));
-        return new Concept(id,name,createdAt,updateddAt,appID,value);
+        if(strings.length == 7){
+            String updateddAt = strings[3].substring(strings[3].indexOf("=") + 1, strings[3].length());
+            if(updateddAt.equals("null"))
+                updateddAt = null;
+            String appID = strings[4].substring(strings[4].indexOf("=") + 1, strings[4].length());
+            double value = Double.valueOf(strings[5].substring(strings[5].indexOf("=") + 1, strings[5].length() - 1));
+            return new Concept(id,name,createdAt,updateddAt,appID,value);
+        } else{
+            String appID = strings[3].substring(strings[3].indexOf("=") + 1, strings[3].length());
+            double value = Double.valueOf(strings[4].substring(strings[4].indexOf("=") + 1, strings[4].length() - 1));
+            return new Concept(id,name,createdAt,null,appID,value);
+        }
     }
 
 }

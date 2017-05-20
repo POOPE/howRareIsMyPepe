@@ -1,4 +1,4 @@
-package test.controller;
+package controller;
 
 import aiss.controller.Imgur;
 import org.junit.Test;
@@ -14,7 +14,7 @@ public class ImgurTest {
     @Test
     public void testPredictImage(){
         try {
-            assertTrue(Imgur.uploadImage(url) == null && !Imgur.uploadImage(url).isEmpty());
+            assertTrue(Imgur.uploadImage(url) != null && !Imgur.uploadImage(url).isEmpty());
         } catch (IOException e) {
             e.printStackTrace();
         }

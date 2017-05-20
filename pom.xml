@@ -11,11 +11,18 @@
 
 	<!-- Restlet repository -->
 	<repositories>
+
 		<repository>
 			<id>maven-restlet</id>
 			<name>Restlet repository</name>
 			<url>https://maven.restlet.com</url>
 		</repository>
+
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+
 	</repositories>
 
 	<properties>
@@ -47,12 +54,14 @@
 			<artifactId>appengine-api-1.0-sdk</artifactId>
 			<version>${appengine.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>${servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
@@ -66,13 +75,13 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
 			<version>${mockito.version}</version>
 			<scope>test</scope>
 		</dependency>
-
 
 		<!-- Jackson 2 core -->
 		<dependency>
@@ -135,15 +144,19 @@
 			<version>${google.client.version}</version>
 		</dependency>
 
-		<!-- Clarifai Client Library -->
-		<dependency>
-			<groupId>com.clarifai.clarifai-api2</groupId>
-			<artifactId>core</artifactId>
-			<version>2.0.2</version>
-		</dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations-java5</artifactId>
+            <version>RELEASE</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.github.Eddydpyl</groupId>
+            <artifactId>clarifai-java</artifactId>
+            <version>2.2.6-AP-1.0.0</version>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<build>
 

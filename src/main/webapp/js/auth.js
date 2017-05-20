@@ -17,7 +17,7 @@ $(document).ready(function () {
             $("#navbar-items").html(gallery + profile + signOut);
             var file = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
             if(file === "register.html")
-                window.location = "index.html"
+                window.location = "../index.html"
             hideForm();
         } else {
             var register = "<li><a href='register.html'>Register</a></li>";
