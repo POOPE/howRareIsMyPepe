@@ -1,0 +1,51 @@
+html, body,.full-screen {
+    background-image: url("../images/Pepe_Yell.gif");
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.flexbox-row {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items: center;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay{
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#dim{
+    background-color: gray;
+    opacity: 0.7;
+    cursor: pointer;
+    display: none;
+}
+
+#auth{
+    display: none;
+    pointer-events: none;
+}
+
+.auth-box{
+    pointer-events: auto;
+    background-color: white;
+    width: 40%;
+    padding: 25px;
+}
