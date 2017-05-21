@@ -23,6 +23,6 @@ public class GalleryServlet extends HttpServlet{
         if(pepes == null)
             pepes = new HashMap<>();
         request.setAttribute("pepes",pepes);
-        request.getRequestDispatcher("gallery.jsp").forward(request,response);
+        request.getRequestDispatcher("/gallery.jsp").forward(request,response);
     }
 }

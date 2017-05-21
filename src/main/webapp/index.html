@@ -70,7 +70,7 @@
         <h4>Find Out</h4><br>
     </div>
     <div class="search-bar" align="center">
-        <form id="bar" method="POST" action="/rarityServlet" onsubmit="recaptcha(this)" enctype="multipart/form-data">
+        <form id="bar" method="POST" action="/rarityServlet/" onsubmit="recaptcha(this)" enctype="multipart/form-data">
             <input type="hidden" name="userID" id="userID">
             <input type="text" name="url" id="url" placeholder="URL"><br><br>
             <input type="file" name="file" id="file">
@@ -80,9 +80,7 @@
         <div class="g-recaptcha" data-sitekey="6Ld1UiIUAAAAAL6py14tij8KBsbQQ9B31ltNwnco"></div>
     </div>
     <div id="search" align="center">
-        <form>
-            <button class="buttons" id="search-button" type="button" onclick="alert('HACER')">Search</button>
-        </form>
+        <button class="buttons" id="search-button" type="submit" form="bar">Search</button>
     </div>
 </div>
 

@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/index.html">How Rare Is My Pepe</a>
+            <a class="navbar-brand" href="index.html">How Rare Is My Pepe</a>
         </div>
 
         <div class="collapse navbar-collapse">
@@ -64,7 +64,7 @@
 <!--------------------------------------------------------------------------------------------------------->
 
 <%if(request.getAttribute("pepes")==null){%>
-<form id="form" name="form" role="form" method="post" action="${pageContext.request.contextPath}/galleryServlet" accept-charset="UTF-8">
+<form id="form" name="form" role="form" method="post" action="/galleryServlet/" accept-charset="UTF-8">
     <input type="hidden" id="userID" name="userID" required>
 </form>
 <script>

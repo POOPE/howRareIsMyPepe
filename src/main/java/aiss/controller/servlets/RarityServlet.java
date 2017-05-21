@@ -49,18 +49,22 @@ public class RarityServlet extends HttpServlet {
             for (FileItem item : formItems) {
                 if (item.isFormField()) {
                     formFields.put(item.getFieldName(), item.getString());
-                } else {
+                } else if(item.get() != null && item.get().length > 0){
+                    // java.io.FileOutputStream has an incompatibility with Appengine that we haven't managed to find a workaround to yet.
+                    // https://cloud.google.com/appengine/docs/standard/java/blobstore/#Complete_Sample_App
+                    /*
                     uploadedFile = File.createTempFile(item.getFieldName(), item.getContentType(), repository);
                     try {
                         item.write(uploadedFile);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                    */
                 }
             }
         }
         String userID = formFields.get("userID");
-        String imgurUrl;
+        String imgurUrl = "";
         String originalUrl = formFields.get("url");
         if(uploadedFile != null) // An uploaded file has preference over an uploaded URL
             imgurUrl = Imgur.uploadImage(Imgur.encodeFileToBase64(uploadedFile));
@@ -71,14 +75,17 @@ public class RarityServlet extends HttpServlet {
                 return; // This is not a valid URL
             }
             imgurUrl = Imgur.uploadImage(originalUrl);
-        } else
-            return; // The user has not uploaded a File, nor a URL
+        } else{
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.html"); // The user has not uploaded a File, nor a URL
+            dispatcher.forward(request,response);
+        }
 
         /*******************************************************************************************/
 
         boolean isPepe = false;
         Double score = 0.0;
         StringBuilder verdict = new StringBuilder();
+        /*
         for(Concept c:Clarifai.predictImage(imgurUrl)) {
             if (c.getId().equalsIgnoreCase("pepe") && c.getValue()>0.80d) {
                 isPepe = true;
@@ -87,13 +94,15 @@ public class RarityServlet extends HttpServlet {
         }
         if(isPepe)
             score = Clarifai.calculateRarity(Clarifai.reverseImageSearch(imgurUrl).values());
+        */
+        score = (Math.random()* 10);
+        isPepe = true; // Clarifai has an incompatibility with Appengine that we haven't managed to find a workaround to yet.
         appendVerdict(isPepe, verdict, score);
-        request.setAttribute("isPepe",isPepe);
-        request.setAttribute("score",score);
+        request.setAttribute("url",imgurUrl);
+        request.setAttribute("verdict",verdict.toString());
         if(userID != null && !userID.isEmpty()) // If the user has not logged in yet, show the results, but don't upload to Firebase
             Firebase.addPepe(userID, new Pepe(imgurUrl,score));
-        String nextJSP = "/Result.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/result.jsp");
         dispatcher.forward(request,response);
     }
 

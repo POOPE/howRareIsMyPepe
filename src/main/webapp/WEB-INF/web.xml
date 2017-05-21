@@ -43,12 +43,12 @@
 
     <servlet-mapping>
         <servlet-name>GalleryServlet</servlet-name>
-        <url-pattern>/galleryServlet</url-pattern>
+        <url-pattern>/galleryServlet/</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>RarityServlet</servlet-name>
-        <url-pattern>/rarityServlet</url-pattern>
+        <url-pattern>/rarityServlet/</url-pattern>
     </servlet-mapping>
 	
 	<!--  OAUTH SERVLETS 

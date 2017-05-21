@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/index.html">How Rare Is My Pepe</a>
+            <a class="navbar-brand" href="index.html">How Rare Is My Pepe</a>
         </div>
 
         <div class="collapse navbar-collapse">
@@ -60,6 +60,24 @@
 </div>
 
 <!--------------------------------------------------------------------------------------------------------->
+
+<div class="blue-box">
+    <div id="titulos" align="center">
+        <h1>HOW RARE IS MY PEPE</h1><br>
+    </div>
+    <div id="pepeimg" align="left">
+        <table style="width:100%">
+            <tr>
+                <th>
+                    <img src="<% request.getParameter("url"); %>"alt="Your pepe">
+                </th>
+                <th>
+                    <h4>Verdict</h4>
+                    <h6/><% request.getParameter("verdict");%> </h6>
+                </th>
+            </tr>
+    </div>
+</div>
 
 </body>
 </html>
