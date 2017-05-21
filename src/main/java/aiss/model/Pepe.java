@@ -1,5 +1,9 @@
 package aiss.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Pepe {
 
     private String url;
@@ -12,6 +16,14 @@ public class Pepe {
         this.url = url;
         this.rarity = rarity;
         this.date = date;
+    }
+
+    public Pepe(String url, double rarity) {
+        this.url = url;
+        this.rarity = rarity;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        this.date = date.toString();
     }
 
     public String getUrl() {
