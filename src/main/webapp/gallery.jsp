@@ -61,11 +61,17 @@
 
 <!--------------------------------------------------------------------------------------------------------->
 
-<%if(!(request.toString().equals(null)) || (request.toString().isEmpty())){
+<table id = galleryTable>
 
-}else{
+    <tbody class="flexbox-row"><!--loop-->
+    <tr<%if(request.toString().isEmpty()||request.toString().equals("")){
 
-}%>
+    }else{
+
+    }
+        %>>
+    </tbody>
+</table>
 
 </body>
 </html>
