@@ -60,6 +60,23 @@
 </div>
 
 <!--------------------------------------------------------------------------------------------------------->
+<div class="blue-box">
+    <div id="titulos" align="center">
+        <h1>HOW RARE IS MY PEPE</h1><br>
+    </div>
+    <div id="pepeimg" align="left">
+        <table style="width:100%">
+            <tr>
+                <th>
+                    <img src="<% request.getParameter("url"); %>"alt="Your pepe">
+                </th>
+                <th>
+                    <h4>Verdict</h4>
+                    <h6/><% request.getParameter("verdict");%> </h6>
+                </th>
+            </tr>
+    </div>
+</div>
 
 </body>
 </html>
