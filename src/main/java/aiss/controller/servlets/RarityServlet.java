@@ -87,6 +87,7 @@ public class RarityServlet extends HttpServlet {
         }
         if(isPepe)
             score = Clarifai.calculateRarity(Clarifai.reverseImageSearch(imgurUrl).values());
+        appendVerdict(isPepe, verdict, score);
         request.setAttribute("isPepe",isPepe);
         request.setAttribute("score",score);
         if(userID != null && !userID.isEmpty()) // If the user has not logged in yet, show the results, but don't upload to Firebase
@@ -98,5 +99,40 @@ public class RarityServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
+    }
+
+    private void appendVerdict(boolean isPepe, StringBuilder verdict, Double score){
+        Double n = (Math.random()* 10);
+        if(!isPepe) {
+            if(n < 5) {
+                verdict.append("That's not a Pepe, bud.");
+            } else {
+                verdict.append("This isn't even a Pepe.");
+            }
+        } else {
+            if(n < 5) {
+                verdict.append("This Pepe is");
+            } else {
+                verdict.append("Well, ");
+            } if(score < 5) {
+                if(n < 5) {
+                    verdict.append(" is not rare at all.");
+                } else {
+                    verdict.append(" at least its a Pepe.");
+                }
+            } else if(score > 5 && score < 9) {
+                if(n < 5) {
+                    verdict.append("ok, I guess.");
+                } else {
+                    verdict.append(" it's something.");
+                }
+            } else {
+                if(n < 5) {
+                    verdict.append("a good find; it's rare.");
+                } else {
+                    verdict.append(" it's rare for sure.");
+                }
+            }
+        }
     }
 }
