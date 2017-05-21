@@ -4,6 +4,10 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
     <!-- All REST resources will be prefixed by /api  -->
     <context-param>
         <param-name>resteasy.servlet.mapping.prefix</param-name>
@@ -20,16 +24,32 @@
         </init-param>
     </servlet>
 
+    <servlet>
+        <servlet-name>GalleryServlet</servlet-name>
+        <servlet-class>aiss.controller.servlets.GalleryServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RarityServlet</servlet-name>
+        <servlet-class>aiss.controller.servlets.RarityServlet</servlet-class>
+    </servlet>
+
     <!-- Servlet mappings -->
     <!-- All calls to /api/xxx will be sent to the resteasy servlet -->
     <servlet-mapping>
         <servlet-name>Resteasy</servlet-name>
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
-	
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
+
+    <servlet-mapping>
+        <servlet-name>GalleryServlet</servlet-name>
+        <url-pattern>/galleryServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RarityServlet</servlet-name>
+        <url-pattern>/rarityServlet</url-pattern>
+    </servlet-mapping>
 	
 	<!--  OAUTH SERVLETS 
   

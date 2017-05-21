@@ -1,3 +1,5 @@
+<%@ page import="java.util.Map" %>
+<%@ page import="aiss.model.Pepe" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -23,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">How Rare Is My Pepe</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/index.html">How Rare Is My Pepe</a>
         </div>
 
         <div class="collapse navbar-collapse">
@@ -61,20 +63,30 @@
 
 <!--------------------------------------------------------------------------------------------------------->
 
-<table id = galleryTable>
-
-    <tbody class="flexbox-row"><!--loop-->
-    <tr<%if(request.toString().isEmpty()||request.toString().equals("")){
-
-    }else{
-
-    }
-        %>>
-    </tbody>
-</table>
-
-</body>
-</html>
+<%if(request.getAttribute("pepes")==null){%>
+<form id="form" name="form" role="form" method="post" action="${pageContext.request.contextPath}/galleryServlet" accept-charset="UTF-8">
+    <input type="hidden" id="userID" name="userID" required>
+</form>
+<script>
+    $(document).ready(function () {
+        document.getElementById("userID").value = getUserId();
+        document.getElementById("form").submit();
+    });
+</script>
+<%
+} else{ %>
+<div class="blue-box" align="center">
+    <ol>
+        <%
+            Map<String, Pepe> map = (Map<String, Pepe>) request.getAttribute("pepes");
+            for(Pepe pepe : map.values()){ %>
+        <li><img src="<%=pepe.getUrl() %>"></li>
+        <%
+            } %>
+    </ol>
+</div>
+<%
+}%>
 
 </body>
 </html>

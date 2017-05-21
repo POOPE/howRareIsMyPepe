@@ -23,7 +23,7 @@ public class Pepe {
         this.rarity = rarity;
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
-        this.date = date.toString();
+        this.date = dateFormat.format(date);
     }
 
     public String getUrl() {

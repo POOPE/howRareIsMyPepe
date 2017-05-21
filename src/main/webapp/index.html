@@ -7,6 +7,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="js/auth.js"></script>
     <title>How Rare Is My Pepe</title>
 </head>
@@ -69,22 +70,14 @@
         <h4>Find Out</h4><br>
     </div>
     <div class="search-bar" align="center">
-        <form id="bar">
-            <input type="text" name="search" placeholder="URL"><br><br>
-
-            <input type="file" id="myFile">
-            <script>
-                function myFunction() {
-                    var x = document.getElementById("myFile");
-                    x.disabled = true;
-                }
-            </script>
+        <form id="bar" method="POST" action="/rarityServlet" onsubmit="recaptcha(this)" enctype="multipart/form-data">
+            <input type="hidden" name="userID" id="userID">
+            <input type="text" name="url" id="url" placeholder="URL"><br><br>
+            <input type="file" name="file" id="file">
         </form>
     </div>
     <div id="recaptcha" align="center">
-        <form action="" method="POST">
-            <div class="g-recaptcha" data-sitekey="6Ld1UiIUAAAAAL6py14tij8KBsbQQ9B31ltNwnco"></div>
-        </form>
+        <div class="g-recaptcha" data-sitekey="6Ld1UiIUAAAAAL6py14tij8KBsbQQ9B31ltNwnco"></div>
     </div>
     <div id="search" align="center">
         <form>
@@ -92,6 +85,12 @@
         </form>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        document.getElementById("userID").value = getUserId();
+    });
+</script>
 
 </body>
 

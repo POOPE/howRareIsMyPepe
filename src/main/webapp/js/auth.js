@@ -120,3 +120,11 @@ function changeEmail(email) {
         // ...
     });
 }
+
+function recaptcha(form){
+    var v = grecaptcha.getResponse();
+    if(v.length === 0)
+        return false;
+    else
+        return true;
+}
