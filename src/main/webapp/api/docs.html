@@ -1,0 +1,599 @@
+<!doctype html>
+<html>
+  <head>
+    <title>How Rare Is My Pepe API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>How Rare Is My Pepe API</h1>
+    <div class="app-desc">Access your Pepe gallery, upload new ones and check their rarity. This API simulates user authentification, meaning that all private calls are made to a test user's gallery and that there is currently no way of accesing your own (or anyone else's) gallery.</div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">Host: randomrecom.appspot.com</div>
+    <div class="app-desc">BasePath:/api</div>
+    <div class="app-desc">Swagger: <a href="https://swaggerhub.com/apis/Eddydpyl/howRareIsMyPepe/1.0.0">https://swaggerhub.com/apis/Eddydpyl/howRareIsMyPepe/1.0.0</a></div>
+    <div class="license-info">Apache 2.0</div>
+    <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Private">Private</a></h4>
+  <ul>
+  <li><a href="#gallery"><code><span class="http-method">get</span> /gallery</code></a></li>
+  <li><a href="#galleryId"><code><span class="http-method">get</span> /gallery/{id}</code></a></li>
+  <li><a href="#galleryIdDel"><code><span class="http-method">delete</span> /gallery/{id}</code></a></li>
+  <li><a href="#galleryIdUp"><code><span class="http-method">put</span> /gallery/{id}</code></a></li>
+  <li><a href="#galleryUrl"><code><span class="http-method">post</span> /gallery</code></a></li>
+  </ul>
+  <h4><a href="#Public">Public</a></h4>
+  <ul>
+  <li><a href="#rarityUrl"><code><span class="http-method">post</span> /rarity</code></a></li>
+  </ul>
+
+  <h1><a name="Private">Private</a></h1>
+  <div class="method"><a name="gallery"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /gallery</code></pre></div>
+    <div class="method-summary">retrieve all Pepes from the authentificated user&#39;s gallery (<span class="nickname">gallery</span>)</div>
+    <div class="method-notes">Recover all of the Pepes in the authentificated user&#39;s gallery</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">reverse (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; if true then the array will be sorted by rarity in ascending order </div><div class="param">upperlimit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; only Pepes with a lower rarity than this will be returned </div><div class="param">lowerlimit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; only Pepes with a higuer rarity than this will be returned </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#PepeID">PepeID</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "id" : "7hgt3ftghi875hbna986",
+  "pepe" : {
+    "date" : "2011-01-18 00:00:00",
+    "url" : "http://imgur.com/example.png",
+    "rarity" : 8.5
+  }
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    gallery retrieved
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="galleryId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /gallery/{id}</code></pre></div>
+    <div class="method-summary">retrieve a Pepe from the authentificated user&#39;s gallery (<span class="nickname">galleryId</span>)</div>
+    <div class="method-notes">Recover a Pepe in the authentificated user&#39;s gallery, given its id</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of the desired Pepe </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PepeID">PepeID</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "id" : "7hgt3ftghi875hbna986",
+  "pepe" : {
+    "date" : "2011-01-18 00:00:00",
+    "url" : "http://imgur.com/example.png",
+    "rarity" : 8.5
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    pepe retrieved correctly
+        <a href="#PepeID">PepeID</a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="galleryIdDel"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /gallery/{id}</code></pre></div>
+    <div class="method-summary">delete a Pepe from the authentificated user&#39;s gallery (<span class="nickname">galleryIdDel</span>)</div>
+    <div class="method-notes">Delete a Pepe in the authentificated user&#39;s gallery, given its id</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of the Pepe to delete </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PepeID">PepeID</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "id" : "7hgt3ftghi875hbna986",
+  "pepe" : {
+    "date" : "2011-01-18 00:00:00",
+    "url" : "http://imgur.com/example.png",
+    "rarity" : 8.5
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Pepe deleted correctly
+        <a href="#PepeID">PepeID</a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="galleryIdUp"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /gallery/{id}</code></pre></div>
+    <div class="method-summary">update a Pepe from the authentificated user&#39;s gallery (<span class="nickname">galleryIdUp</span>)</div>
+    <div class="method-notes">Update a Pepe in the authentificated user&#39;s gallery, given its id</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id of the Pepe to update </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">rarity (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; updated rarity of the Pepe </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PepeID">PepeID</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "id" : "7hgt3ftghi875hbna986",
+  "pepe" : {
+    "date" : "2011-01-18 00:00:00",
+    "url" : "http://imgur.com/example.png",
+    "rarity" : 8.5
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Pepe updated correctly
+        <a href="#PepeID">PepeID</a>
+    <h4 class="field-label">404</h4>
+    not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="galleryUrl"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /gallery</code></pre></div>
+    <div class="method-summary">add a new Pepe to the authentificated user&#39;s gallery (<span class="nickname">galleryUrl</span>)</div>
+    <div class="method-notes">Upload an image from an url to the server, it will be added to the authentificated user&#39;s gallery</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">url (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; url pointing to the image </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PepeID">PepeID</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "id" : "7hgt3ftghi875hbna986",
+  "pepe" : {
+    "date" : "2011-01-18 00:00:00",
+    "url" : "http://imgur.com/example.png",
+    "rarity" : 8.5
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Pepe created correctly
+        <a href="#PepeID">PepeID</a>
+    <h4 class="field-label">400</h4>
+    invalid input
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Public">Public</a></h1>
+  <div class="method"><a name="rarityUrl"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /rarity</code></pre></div>
+    <div class="method-summary">assess the rarity your Pepe (<span class="nickname">rarityUrl</span>)</div>
+    <div class="method-notes">Upload an image from an url to the server, it won&#39;t be saved to anyone&#39;s gallery</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="heaader">Content-Type</span> request header:
+    <ul>
+      <li><code>text/plain</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">url (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; url pointing to the image </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Pepe">Pepe</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "date" : "2011-01-18 00:00:00",
+  "url" : "http://imgur.com/example.png",
+  "rarity" : 8.5
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    rarity evaluated correctly
+        <a href="#Pepe">Pepe</a>
+    <h4 class="field-label">400</h4>
+    invalid input
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <div class="up"><a href="#__Models">Up</a></div>
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Pepe"><code>Pepe</code></a></li>
+    <li><a href="#PepeID"><code>PepeID</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3 class="field-label"><a name="Pepe">Pepe - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">rarity (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3 class="field-label"><a name="PepeID">PepeID - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pepe (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pepe">Pepe</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
