@@ -18,11 +18,6 @@
 			<url>https://maven.restlet.com</url>
 		</repository>
 
-		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
-		</repository>
-
 	</repositories>
 
 	<properties>
@@ -150,11 +145,13 @@
             <version>RELEASE</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.clarifai.clarifai-api2/core -->
         <dependency>
-            <groupId>com.github.Eddydpyl</groupId>
-            <artifactId>clarifai-java</artifactId>
-            <version>2.2.6-AP-1.0.0</version>
+            <groupId>com.clarifai.clarifai-api2</groupId>
+            <artifactId>core</artifactId>
+            <version>2.2.6</version>
         </dependency>
+
 
     </dependencies>
 

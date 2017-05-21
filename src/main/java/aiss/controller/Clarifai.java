@@ -14,7 +14,7 @@ public class Clarifai {
 
     private static final String CLIENT_ID = "aMMqwNix7jNrVxWx76AJYqlQ9lJGew4sVYd3YakM";
     private static final String CLIENT_SECRET = "LXeuhjDp5iF9Ull2uwETYkEuskyFS1GvT7au9vvi";
-    private static final String MODEL_ID = "pepe";
+    private static final String MODEL_ID = "howrareismypepe";
 
     /**
      *

@@ -16,7 +16,7 @@ public class ClarifaiTest {
 
     @Test
     public void testReverseImageSearch(){
-        assertTrue(Clarifai.reverseImageSearch(url).size()>0);  // A call to this method returns the twenty most similar images
+        assertTrue(Clarifai.reverseImageSearch(url).size()==20);  // A call to this method returns the twenty most similar images
     }
 
 }
